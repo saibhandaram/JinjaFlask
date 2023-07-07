@@ -9,10 +9,18 @@ blog_posts = response.json()
 app = Flask(__name__)
 
 
+
 @app.route('/')
-def get_blogs():
-    print(blog_posts)
-    return render_template("post.html", posts=blog_posts['next_steps'])
+def get_homepage():
+    return render_template("index.html", posts=blog_posts['next_steps'])
+
+@app.route('/about.html')
+def get_about():
+    return render_template("about.html")
+
+@app.route('/contact')
+def get_contact():
+    return render_template("contact.html")
 
 
 @app.route('/post/<int:num>')

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'header.html' %}
+<body>
+<div >
+    <div >
+            <div ><h1>My Blog</h1></div>
+        </div>
+
+    <div >
+<!--        <div> Posts are : {{ posts }}</div>-->
+
+        <div >
+            {% for post in posts %}
+
+            <h2>{{ posts[loop.index-1]['title'] }}</h2>
+            <p>{{ posts[loop.index-1]['subtitle'] }}</p>
+            <p><a href="{{ url_for('get_post', num = loop.index-1 )}}">Read More</a></p>
+            {% endfor %}
+        </div>
+
+
+    </div>
+</div>
+</body>
+
+   {% include 'footer.html' %}
+
+</html>
